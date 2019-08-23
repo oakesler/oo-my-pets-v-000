@@ -1,16 +1,26 @@
+require "pry"
+
 class Owner
-    
+  
   attr_reader :name
   
   @@all = [ ]
   
-  def initialize(name = @name)
+  def initialize(name)
     @name = name 
     @@all << self
   end
   
   def self.all
-    @all
+    @@all
+  end
+  
+  def self.count
+    @@all.length 
+  end
+  
+  def self.reset_all
+    @@all.clear
   end
   
   def buy_cat(name)
@@ -22,7 +32,8 @@ class Owner
   end
   
   def say_species
-    puts "I am a #{self.species}"
+    #binding.pry
+    "I am a #{self.species}."
   end
   
   #def clear
