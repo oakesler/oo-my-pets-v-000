@@ -3,13 +3,14 @@ require "pry"
 class Dog
   
   attr_reader :name
-  attr_accessor :owner
+  attr_accessor :owner, :mood
   
   @@all = [ ]
   
-  def initialize(name, owner = @owner)
+  def initialize(name, owner = @owner, mood = "nervous")
     @name = name
     @owner = owner
+    @mood = mood
     @@all << self
   end
   

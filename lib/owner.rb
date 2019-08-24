@@ -8,6 +8,8 @@ class Owner
   
   def initialize(name)
     @name = name 
+    @cats = []
+    @dogs = []
     @@all << self
   end
   
@@ -36,8 +38,30 @@ class Owner
     "I am a #{self.species}."
   end
   
-  #def clear
-    #self.all.clear
-  #end
-    
+  def cats
+    Cat.all.select {|item| item.owner == self}
+  end
+   
+  def dogs
+    Dog.all.select {|item| item.owner == self}
+  end
+  
+  def buy_cat(name)
+    @cats << Cat.new(name, self)
+  end
+  
+  def buy_dog(name)
+    @dogs << Dog.new(name, self)
+  end
+  
+  def walk_dogs
+    self.dogs.map do |item|
+      item.mood == "happy"
+    end
+  end
 end
+      
+      
+      
+      #{|item| item.mood == "happy"}
+   # binding.pry

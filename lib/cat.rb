@@ -2,20 +2,16 @@ require "pry"
 
 class Cat
   
-  attr_writer :mood
   attr_reader :name 
-  attr_accessor :owner 
+  attr_accessor :owner, :mood
   
   @@all = [ ]
   
   def initialize(name, owner = @owner, mood = "nervous")
     @name = name
     @owner = owner
-    @@all << self
-  end
-  
-  def mood=(mood)
     @mood = mood
+    @@all << self
   end
   
   def self.all
