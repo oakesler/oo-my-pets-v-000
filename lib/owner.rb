@@ -10,6 +10,7 @@ class Owner
     @name = name 
     @cats = []
     @dogs = []
+    @cat = []
     @@all << self
   end
   
@@ -55,8 +56,14 @@ class Owner
   end
   
   def walk_dogs
-    self.dogs.map do |item|
-      item.mood == "happy"
+    self.dogs.each do |item|
+      item.mood = "happy"
+    end
+  end
+  
+  def feed_cats
+    self.cats.each do |item|
+      item.mood = "happy"
     end
   end
 end
@@ -65,3 +72,8 @@ end
       
       #{|item| item.mood == "happy"}
    # binding.pry
+  #def buy_cat(name = @name)
+    #@cat << Cat.new(name)
+    #binding.pry
+  #end
+#end
