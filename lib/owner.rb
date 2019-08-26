@@ -68,7 +68,7 @@ class Owner
     #binding.pry
     self.cats.each do |item|
       item.mood = "nervous"
-      item.owner.clear
+      item.owner = nil
     end
     self.dogs.each do |item|
       item.mood = "nervous"
