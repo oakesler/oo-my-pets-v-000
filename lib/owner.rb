@@ -6,11 +6,12 @@ class Owner
   
   @@all = [ ]
   
+  @@all_pets = [ ]
+  
   def initialize(name)
     @name = name 
     @cats = []
     @dogs = []
-    @cat = []
     @@all << self
   end
   
@@ -24,10 +25,6 @@ class Owner
   
   def self.reset_all
     @@all.clear
-  end
-  
-  def buy_cat(name)
-    
   end
   
   def species(species = "human")
@@ -65,6 +62,24 @@ class Owner
     self.cats.each do |item|
       item.mood = "happy"
     end
+  end
+  
+  def sell_pets
+    #binding.pry
+    self.cats.each do |item|
+      item.mood = "nervous"
+      item.owner.clear
+    end
+    self.dogs.each do |item|
+      item.mood = "nervous"
+      item.owner.clear
+    end
+    self.cats.clear
+    self.dogs.clear
+  end
+  
+  def list_pets
+    "I have #{self.dogs.count} dog(s), and #{self.cats.count} cat(s)."
   end
 end
       
